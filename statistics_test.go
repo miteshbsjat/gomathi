@@ -5,7 +5,7 @@ import (
 )
 
 func TestMean(t *testing.T) {
-	ret := mean(1, 2, 3, 4)
+	ret := Mean(1, 2, 3, 4)
 
 	if ret != 2.50 {
 		t.Fail()
