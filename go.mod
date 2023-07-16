@@ -1,3 +1,3 @@
-module ithub.com/miteshbsjat/gomathi
+module github.com/miteshbsjat/gomathi
 
 go 1.19
