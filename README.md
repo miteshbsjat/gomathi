@@ -28,3 +28,11 @@ func main() {
 $ go run statistics.go
 Mean = 2.500000
 ```
+
+## Testing
+
+* Please run the following command to test this package
+
+```bash
+$ go test
+```
