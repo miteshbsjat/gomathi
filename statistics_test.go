@@ -9,24 +9,24 @@ func TestMean(t *testing.T) {
 	for i := 0; i < 4; i++ {
 		arr[i] = 4 - i
 	}
-	exp := 2.5
+	expected := 2.5
 	ret := Mean(arr)
 	if ret != 2.50 {
-		t.Errorf("returned=%f != expected=%f", ret, exp)
+		t.Errorf("returned=%f != expected=%f", ret, expected)
 	}
 
-	exp = 0.0
+	expected = 0.0
 	ret = Mean(make([]float64, 0))
-	if ret != exp {
-		t.Errorf("returned=%f != expected=%f", ret, exp)
+	if ret != expected {
+		t.Errorf("returned=%f != expected=%f", ret, expected)
 	}
 
-	exp = 0.3
+	expected = 0.3
 	arrf := []float64{0.3, 0.1, 0.2, 0.4, 0.6, 0.2}
 	before := arrf[0]
 	ret = Mean(arrf)
-	if ret != exp {
-		t.Errorf("returned=%f != expected=%f", ret, exp)
+	if ret != expected {
+		t.Errorf("returned=%f != expected=%f", ret, expected)
 	}
 	after := arrf[0]
 	if before != after {
