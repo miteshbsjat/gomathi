@@ -4,6 +4,7 @@ import (
 	"sort"
 
 	"golang.org/x/exp/constraints"
+	"golang.org/x/exp/slices"
 )
 
 type Number interface {
@@ -26,22 +27,21 @@ func Mean[T Number](numbers []T) float64 {
 
 // Statistics:
 // Find the median of the n numbers
-func Median(numbers ...float64) float64 {
+func Median[T Number](numbers []T) float64 {
 	l := len(numbers)
 	if l == 0 {
 		return 0
 	}
-	dataCopy := make([]float64, l)
-	copy(dataCopy, numbers)
-
-	sort.Float64s(dataCopy)
-
+	// for data immutability
+	nCopy := make([]T, l)
+	copy(nCopy, numbers)
+	slices.Sort(nCopy)
 	var median float64
 	var mid int = l / 2
 	if l%2 == 0 {
-		median = (dataCopy[mid-1] + dataCopy[mid]) / 2
+		median = float64((nCopy[mid-1] + nCopy[mid]) / 2.0)
 	} else {
-		median = dataCopy[mid]
+		median = float64(nCopy[mid])
 	}
 
 	return median

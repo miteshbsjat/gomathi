@@ -36,24 +36,28 @@ func TestMean(t *testing.T) {
 }
 
 func TestMedian(t *testing.T) {
-	ret := Median(3, 3, 3, 3, 2, 22, 2, 2, 2, 2, 1, 1, 1, 1, 1, 111)
-	if ret != 2 {
-		t.Fail()
+	arrf := []float64{3, 3, 3, 3, 2, 22, 2, 2, 2, 2, 1, 1, 1, 1, 1, 111}
+	ret := Median(arrf)
+	expected := 2.0
+	if ret != expected {
+		t.Errorf("returned=%f != expected=%f", ret, expected)
 	}
 
-	ret = Median()
+	ret = Median(make([]int64, 0))
 	if ret != 0.0 {
 		t.Fail()
 	}
 
-	ret = Median(1, 2, 3)
-	if ret != 2 {
-		t.Fail()
+	arri := []int{3, 3, 3, 3, 2, 22, 2, 2, 1, 2}
+	before := arri[0]
+	ret = Median(arri)
+	expected = 2.0
+	if ret != expected {
+		t.Errorf("returned=%f != expected=%f", ret, expected)
 	}
-
-	ret = Median(1, 2, 3, 4)
-	if ret != 2.5 {
-		t.Fail()
+	after := arri[0]
+	if before != after {
+		t.Errorf("before=%d != after=%d", before, after)
 	}
 }
 
