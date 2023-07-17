@@ -38,7 +38,7 @@ func TestMedian(t *testing.T) {
 	}
 }
 
-func TestQuantil(t *testing.T) {
+func TestQuantile(t *testing.T) {
 	ret := Quantile(0)
 	if ret != 0.0 {
 		t.Fail()
