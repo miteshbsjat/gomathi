@@ -18,7 +18,7 @@ import (
 )
 
 func main() {
-    fmt.Printf("Mean = %f\n", gomathi.Mean(1, 2, 3, 4))
+    fmt.Printf("Mean = %f\n", gomathi.Mean([]int{1, 2, 3, 4})
 }
 ```
 
