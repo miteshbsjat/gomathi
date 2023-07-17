@@ -5,15 +5,34 @@ import (
 )
 
 func TestMean(t *testing.T) {
-	ret := Mean(1, 2, 3, 4)
+	arr := make([]int, 4)
+	for i := 0; i < 4; i++ {
+		arr[i] = 4 - i
+	}
+	exp := 2.5
+	ret := Mean(arr)
 	if ret != 2.50 {
-		t.Fail()
+		t.Errorf("returned=%f != expected=%f", ret, exp)
 	}
 
-	ret = Mean()
-	if ret != 0.0 {
-		t.Fail()
+	exp = 0.0
+	ret = Mean(make([]float64, 0))
+	if ret != exp {
+		t.Errorf("returned=%f != expected=%f", ret, exp)
 	}
+
+	exp = 0.3
+	arrf := []float64{0.3, 0.1, 0.2, 0.4, 0.6, 0.2}
+	before := arrf[0]
+	ret = Mean(arrf)
+	if ret != exp {
+		t.Errorf("returned=%f != expected=%f", ret, exp)
+	}
+	after := arrf[0]
+	if before != after {
+		t.Errorf("before=%f != after=%f", before, after)
+	}
+
 }
 
 func TestMedian(t *testing.T) {

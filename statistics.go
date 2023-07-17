@@ -2,18 +2,24 @@ package gomathi
 
 import (
 	"sort"
+
+	"golang.org/x/exp/constraints"
 )
+
+type Number interface {
+	constraints.Float | constraints.Integer
+}
 
 // Statistics:
 // Find the mean of the n numbers
-func Mean(numbers ...float64) float64 {
+func Mean[T Number](numbers []T) float64 {
 	l := (float64)(len(numbers))
 	if l == 0 {
 		return 0
 	}
 	var sum float64 = 0
 	for _, n := range numbers {
-		sum += n
+		sum += float64(n)
 	}
 	return sum / l
 }
