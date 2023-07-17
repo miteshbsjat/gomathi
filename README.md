@@ -13,12 +13,13 @@ I dedicate this package to my GrandMother Smt. Gomathi Devi Jat.
 package main
 
 import (
-    "fmt"
-    "github.com/miteshbsjat/gomathi"
+	"fmt"
+	"github.com/miteshbsjat/gomathi"
 )
 
 func main() {
-    fmt.Printf("Mean = %f\n", gomathi.Mean([]int{1, 2, 3, 4})
+	fmt.Printf("Mean = %f\n", gomathi.Mean([]int{1, 2, 3, 4}))
+	fmt.Printf("Median = %f\n", gomathi.Median([]int{1, 2, 2, 3, 4}))
 }
 ```
 
@@ -27,6 +28,7 @@ func main() {
 ```bash
 $ go run statistics.go
 Mean = 2.500000
+Median = 2.000000
 ```
 
 ## Testing
