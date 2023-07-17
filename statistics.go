@@ -1,8 +1,6 @@
 package gomathi
 
 import (
-	"sort"
-
 	"golang.org/x/exp/constraints"
 	"golang.org/x/exp/slices"
 )
@@ -48,16 +46,15 @@ func Median[T Number](numbers []T) float64 {
 }
 
 // Find the pth-percentile value in numbers
-func Quantile(p float32, numbers ...float64) float64 {
+func Quantile[T Number](p float32, numbers []T) T {
 	l := len(numbers)
 	if l == 0 {
 		return 0
 	}
-	dataCopy := make([]float64, l)
-	copy(dataCopy, numbers)
+	nCopy := make([]T, l)
+	copy(nCopy, numbers)
 
-	sort.Float64s(dataCopy)
+	slices.Sort(nCopy)
 	pIndex := int(p * float32(l))
-	sort.Float64s(dataCopy)
-	return dataCopy[pIndex]
+	return nCopy[pIndex]
 }

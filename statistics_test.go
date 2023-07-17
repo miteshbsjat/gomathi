@@ -62,16 +62,16 @@ func TestMedian(t *testing.T) {
 }
 
 func TestQuantile(t *testing.T) {
-	ret := Quantile(0)
+	ret := Quantile(0, make([]int, 0))
 	if ret != 0.0 {
 		t.Fail()
 	}
-	ret = Quantile(0.8, 3, 3, 3, 3, 2, 22, 2, 2, 2, 2, 1, 1, 1, 1, 1, 111)
+	ret = Quantile(0.8, []int{3, 3, 3, 3, 2, 22, 2, 2, 2, 2, 1, 1, 1, 1, 1, 111})
 	if ret != 3 {
-		t.Errorf("Quantile ret = %f\n", ret)
+		t.Errorf("Quantile ret = %d\n", ret)
 	}
-	ret = Quantile(0.9, 3, 3, 3, 3, 2, 22, 2, 2, 2, 2, 1, 1, 1, 1, 1, 111)
-	if ret != 22 {
-		t.Errorf("Quantile ret = %f\n", ret)
+	retf := Quantile(0.9, []float64{3, 3, 3, 3, 2, 22, 2, 2, 2, 2, 1, 1, 1, 1, 1, 111})
+	if retf != 22 {
+		t.Errorf("Quantile ret = %f\n", retf)
 	}
 }
